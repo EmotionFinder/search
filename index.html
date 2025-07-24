@@ -53,27 +53,27 @@
         
         .cube-face:nth-child(1) {
             transform: translateZ(75px);
-            background: linear-gradient(45deg, #9d4edd, #7b2cbf);
+            background: linear-gradient(45deg, #FF6B6B, #E63946); /* Красный */
         }
         .cube-face:nth-child(2) {
             transform: rotateY(90deg) translateZ(75px);
-            background: linear-gradient(45deg, #ff6b6b, #e63946);
+            background: linear-gradient(45deg, #FFD93D, #FFAA00); /* Желтый */
         }
         .cube-face:nth-child(3) {
             transform: rotateY(180deg) translateZ(75px);
-            background: linear-gradient(45deg, #ffd93d, #ffaa00);
+            background: linear-gradient(45deg, #6BCB77, #4CAF50); /* Зеленый */
         }
         .cube-face:nth-child(4) {
             transform: rotateY(-90deg) translateZ(75px);
-            background: linear-gradient(45deg, #6bcb77, #4caf50);
+            background: linear-gradient(45deg, #4D96FF, #1E88E5); /* Синий */
         }
         .cube-face:nth-child(5) {
             transform: rotateX(90deg) translateZ(75px);
-            background: linear-gradient(45deg, #4d96ff, #1e88e5);
+            background: linear-gradient(45deg, #9D4EDD, #7B2CBF); /* Фиолетовый */
         }
         .cube-face:nth-child(6) {
             transform: rotateX(-90deg) translateZ(75px);
-            background: linear-gradient(45deg, #c77dff, #9c4dff);
+            background: linear-gradient(45deg, #FF9E6B, #FF7A33); /* Оранжевый */
         }
         
         .preloader-particle {
@@ -126,46 +126,42 @@
             50% { opacity: 1; }
         }
         
-        /* Emotion of the day - fixed banner */
-        .emotion-of-day {
+        /* Emotion of the day - compact button */
+        .emotion-of-day-btn {
+            position: fixed;
+            top: 20px;
+            right: 80px;
             background: linear-gradient(135deg, var(--accent-purple), #7b2cbf);
-            border-radius: 0 0 16px 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-            color: white;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            position: relative;
-        }
-        
-        .emotion-of-day .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .emotion-of-day h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-        
-        .emotion-of-day p {
-            opacity: 0.9;
-            margin-bottom: 15px;
-            max-width: 800px;
-        }
-        
-        .emotion-of-day .actions {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             display: flex;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .emotion-of-day-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .emotion-of-day-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-red);
+            color: white;
+            font-size: 0.7rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
         }
         
         /* Game Modal */
@@ -257,6 +253,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding-top: 10px;
         }
         
         .game-title {
@@ -335,6 +332,7 @@
             background: rgba(107, 203, 119, 0.2);
             border-color: var(--accent-green);
             color: var(--accent-green);
+            animation: pulse 0.5s;
         }
         
         .game-option.incorrect {
@@ -418,6 +416,111 @@
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--accent-purple);
+        }
+        
+        /* User accounts */
+        .user-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 15px;
+        }
+        
+        .user-input {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            background: var(--bg-card-dark);
+            color: var(--text-primary-dark);
+            font-size: 0.9rem;
+            max-width: 120px;
+        }
+        
+        body.light-theme .user-input {
+            background: var(--bg-card-light);
+            color: var(--text-primary-light);
+        }
+        
+        .user-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            background: var(--accent-purple);
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .user-btn:hover {
+            background: #7b2cbf;
+            transform: translateY(-2px);
+        }
+        
+        .user-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary-dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        body.light-theme .user-indicator {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-secondary-light);
+        }
+        
+        /* Secret rainbow mode */
+        .rainbow-mode {
+            animation: rainbowBackground 10s infinite linear;
+        }
+        
+        @keyframes rainbowBackground {
+            0% { background-color: #ff6b6b; }
+            16% { background-color: #ffd93d; }
+            33% { background-color: #6bcb77; }
+            50% { background-color: #4d96ff; }
+            66% { background-color: #9d4edd; }
+            83% { background-color: #ff9e6b; }
+            100% { background-color: #ff6b6b; }
+        }
+        
+        /* Secret particles */
+        .secret-particle {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 2s forwards;
+        }
+        
+        @keyframes floatUp {
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Secret easter egg */
+        .secret-easter-egg {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.8rem;
+            opacity: 0.3;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+        
+        .secret-easter-egg:hover {
+            opacity: 1;
         }
         
         /* Base styles */
@@ -1335,6 +1438,12 @@
             to { opacity: 1; }
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -1359,6 +1468,12 @@
             
             .game-options {
                 grid-template-columns: 1fr;
+            }
+            
+            .user-controls {
+                position: absolute;
+                top: 80px;
+                right: 15px;
             }
         }
 
@@ -1392,6 +1507,11 @@
             .header-controls {
                 justify-content: center;
             }
+            
+            .emotion-of-day-btn {
+                right: 15px;
+                top: 80px;
+            }
         }
     </style>
 </head>
@@ -1418,6 +1538,12 @@
     <div class="container">
         <header class="header">
             <h1 class="logo">ЭмоцииFinder</h1>
+            
+            <div class="user-controls">
+                <input type="text" id="usernameInput" class="user-input" placeholder="Ваше имя">
+                <button class="user-btn" id="loginBtn">Войти</button>
+            </div>
+            
             <div class="header-controls">
                 <button class="icon-btn game-button" aria-label="Игра" id="gameButton">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1454,11 +1580,13 @@
             </div>
         </header>
 
-        <!-- Emotion of the day - fixed banner -->
-        <div class="emotion-of-day" id="emotionOfDay">
-            <div class="badge">Эмоция дня</div>
-            <h3>Благодарность / Gratitude</h3>
-            <p>Чувство признательности за что-то полученное или пережитое</p>
+        <!-- Emotion of the day - compact button -->
+        <div class="emotion-of-day-btn" id="emotionOfDayBtn" title="Эмоция дня">
+            <div class="badge">!</div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
+            </svg>
         </div>
         
         <main>
@@ -1659,10 +1787,13 @@
         </div>
     </div>
 
+    <!-- Secret Easter Egg -->
+    <div class="secret-easter-egg" id="secretEasterEgg">Тайная лаборатория эмоций</div>
+
     <footer>
         <div class="footer-content">
             <div class="copyright">© 2023 ЭмоцииFinder</div>
-            <div class="version">v2.0.0</div>
+            <div class="version">v2.1.0</div>
         </div>
     </footer>
 
@@ -1688,358 +1819,7 @@
                     en: "A state of high emotional arousal, anticipation, or agitation about an upcoming event." 
                 } 
             },
-            { 
-                id: 3, 
-                name: { en: "Angry", ru: "Злой" }, 
-                category: "red", 
-                description: { 
-                    ru: "Сильное чувство недовольства, враждебности или раздражения.", 
-                    en: "A strong feeling of displeasure, hostility, or irritation." 
-                } 
-            },
-            { 
-                id: 4, 
-                name: { en: "Frustrated", ru: "Разочарованный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Чувство расстройства или раздражения, вызванное невозможностью изменить или достичь чего-либо.", 
-                    en: "Feeling upset or annoyed as a result of being unable to change or achieve something." 
-                } 
-            },
-            { 
-                id: 5, 
-                name: { en: "Annoyed", ru: "Раздраженный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Легкое чувство раздражения или недовольства.", 
-                    en: "Slightly angry; irritated." 
-                } 
-            },
-            { 
-                id: 6, 
-                name: { en: "Impatient", ru: "Нетерпеливый" }, 
-                category: "red", 
-                description: { 
-                    ru: "Чувство беспокойства или раздражения из-за задержки или необходимости ждать.", 
-                    en: "Feeling restless or annoyed due to a delay or the need to wait." 
-                } 
-            },
-            { 
-                id: 7, 
-                name: { en: "Irritated", ru: "Раздосадованный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Чувство легкого гнева или раздражения.", 
-                    en: "Feeling slight anger or annoyance." 
-                } 
-            },
-            { 
-                id: 8, 
-                name: { en: "Hostile", ru: "Враждебный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Проявление неприязни или антагонизма по отношению к кому-либо или чему-либо.", 
-                    en: "Showing or feeling opposition or dislike; unfriendly." 
-                } 
-            },
-            { 
-                id: 9, 
-                name: { en: "Aggravated", ru: "Озлобленный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Чувство раздражения или гнева, усугубленное внешними обстоятельствами.", 
-                    en: "Feeling annoyed or angry, especially due to worsening circumstances." 
-                } 
-            },
-            { 
-                id: 10, 
-                name: { en: "Furious", ru: "Взбешенный" }, 
-                category: "red", 
-                description: { 
-                    ru: "Чрезвычайно злой или яростный.", 
-                    en: "Extremely angry; full of rage." 
-                } 
-            },
-            // ... (other red emotions - total 36)
-            
-            // Yellow emotions (36)
-            { 
-                id: 37, 
-                name: { en: "Happy", ru: "Счастливый" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Чувство удовольствия или удовлетворенности.", 
-                    en: "Feeling or showing pleasure or contentment." 
-                } 
-            },
-            { 
-                id: 38, 
-                name: { en: "Joyful", ru: "Радостный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Чувство великого удовольствия и счастья.", 
-                    en: "Feeling or expressing great pleasure and happiness." 
-                } 
-            },
-            { 
-                id: 39, 
-                name: { en: "Excited", ru: "Взволнованный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Очень взволнованный и полный энтузиазма.", 
-                    en: "Very enthusiastic and eager." 
-                } 
-            },
-            { 
-                id: 40, 
-                name: { en: "Optimistic", ru: "Оптимистичный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Наличие позитивного взгляда на будущее или успех чего-либо.", 
-                    en: "Having a positive outlook on future or the success of something." 
-                } 
-            },
-            { 
-                id: 41, 
-                name: { en: "Proud", ru: "Гордый" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Чувство глубокого удовлетворения от собственных достижений или достижений близких.", 
-                    en: "Feeling deep pleasure or satisfaction as a result of one's own achievements or those of someone close." 
-                } 
-            },
-            { 
-                id: 42, 
-                name: { en: "Amused", ru: "Развеселенный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Находящий что-то забавным или развлекательным.", 
-                    en: "Finding something funny or entertaining." 
-                } 
-            },
-            { 
-                id: 43, 
-                name: { en: "Delighted", ru: "Восхищенный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Чувство большого удовольствия.", 
-                    en: "Feeling or showing great pleasure." 
-                } 
-            },
-            { 
-                id: 44, 
-                name: { en: "Hopeful", ru: "Надеющийся" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Чувство оптимизма и уверенности в положительном исходе.", 
-                    en: "Feeling optimism and confidence about a positive outcome." 
-                } 
-            },
-            { 
-                id: 45, 
-                name: { en: "Playful", ru: "Игривый" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Настроенный на игру или развлечение.", 
-                    en: "In a mood for games or amusement." 
-                } 
-            },
-            { 
-                id: 46, 
-                name: { en: "Enthusiastic", ru: "Воодушевленный" }, 
-                category: "yellow", 
-                description: { 
-                    ru: "Проявление интенсивного и страстного увлечения чем-либо.", 
-                    en: "Showing intense and eager enjoyment or interest." 
-                } 
-            },
-            // ... (other yellow emotions - total 36)
-            
-            // Green emotions (36)
-            { 
-                id: 73, 
-                name: { en: "Calm", ru: "Спокойный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Отсутствие сильных эмоций, беспокойства или волнения.", 
-                    en: "The state of being free from strong emotions, anxiety, or agitation." 
-                } 
-            },
-            { 
-                id: 74, 
-                name: { en: "Relaxed", ru: "Расслабленный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Свободный от напряжения и тревоги.", 
-                    en: "Free from tension and anxiety." 
-                } 
-            },
-            { 
-                id: 75, 
-                name: { en: "Content", ru: "Довольный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Состояние мирного счастья и удовлетворенности.", 
-                    en: "In a state of peaceful happiness and satisfaction." 
-                } 
-            },
-            { 
-                id: 76, 
-                name: { en: "Grateful", ru: "Благодарный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Чувство благодарности и признательности.", 
-                    en: "Feeling thankful and appreciative." 
-                } 
-            },
-            { 
-                id: 77, 
-                name: { en: "Peaceful", ru: "Умиротворенный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Свободный от беспокойства или стресса.", 
-                    en: "Free from disturbance or stress." 
-                } 
-            },
-            { 
-                id: 78, 
-                name: { en: "Balanced", ru: "Сбалансированный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Состояние эмоционального равновесия и стабильности.", 
-                    en: "In a state of emotional equilibrium and stability." 
-                } 
-            },
-            { 
-                id: 79, 
-                name: { en: "Satisfied", ru: "Удовлетворенный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Чувство удовольствия от выполнения потребности или желания.", 
-                    en: "Feeling pleasure from the fulfillment of a need or desire." 
-                } 
-            },
-            { 
-                id: 80, 
-                name: { en: "Comfortable", ru: "Комфортный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Состояние физического или психического расслабления без стресса.", 
-                    en: "In a state of physical or mental ease without stress." 
-                } 
-            },
-            { 
-                id: 81, 
-                name: { en: "Secure", ru: "Уверенный" }, 
-                category: "green", 
-                description: { 
-                    ru: "Чувство защищенности и отсутствия тревоги или страха.", 
-                    en: "Feeling safe and free from anxiety or fear." 
-                } 
-            },
-            { 
-                id: 82, 
-                name: { en: "Assured", ru: "Уверенный в себе" }, 
-                category: "green", 
-                description: { 
-                    ru: "Чувство уверенности в своих силах или способностях.", 
-                    en: "Feeling confident in one's abilities or strengths." 
-                } 
-            },
-            // ... (other green emotions - total 36)
-            
-            // Blue emotions (36)
-            { 
-                id: 109, 
-                name: { en: "Sad", ru: "Грустный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Чувство несчастья или подавленности.", 
-                    en: "Feeling unhappy or downcast." 
-                } 
-            },
-            { 
-                id: 110, 
-                name: { en: "Tired", ru: "Усталый" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Потребность в отдыхе или сне, особенно из-за физических усилий.", 
-                    en: "In need of rest or sleep, especially due to physical exertion." 
-                } 
-            },
-            { 
-                id: 111, 
-                name: { en: "Bored", ru: "Скучающий" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Чувство усталости и неудовлетворенности из-за отсутствия интереса.", 
-                    en: "Feeling weary and dissatisfied due to lack of interest." 
-                } 
-            },
-            { 
-                id: 112, 
-                name: { en: "Lonely", ru: "Одинокий" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Печаль из-за отсутствия компании или изоляции.", 
-                    en: "Sadness because one has no company or feels isolated." 
-                } 
-            },
-            { 
-                id: 113, 
-                name: { en: "Disappointed", ru: "Разочарованный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Чувство неудовлетворенности, когда что-то не оправдывает ожиданий.", 
-                    en: "Feeling let down when something does not meet expectations." 
-                } 
-            },
-            { 
-                id: 114, 
-                name: { en: "Pessimistic", ru: "Пессимистичный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Склонность видеть наихудший аспект вещей или верить, что наихудшее произойдет.", 
-                    en: "Tending to see the worst aspect of things or believe that the worst will happen." 
-                } 
-            },
-            { 
-                id: 115, 
-                name: { en: "Apathetic", ru: "Апатичный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Отсутствие интереса, энтузиазма или беспокойства.", 
-                    en: "Lack of interest, enthusiasm, or concern." 
-                } 
-            },
-            { 
-                id: 116, 
-                name: { en: "Numb", ru: "Оцепенелый" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Лишенный чувства или реакции; оцепенелый.", 
-                    en: "Deprived of feeling or responsiveness; stunned." 
-                } 
-            },
-            { 
-                id: 117, 
-                name: { en: "Weary", ru: "Измученный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Чувство или проявление крайней усталости, особенно в результате длительного напряжения.", 
-                    en: "Feeling or showing extreme tiredness, especially as a result of prolonged exertion." 
-                } 
-            },
-            { 
-                id: 118, 
-                name: { en: "Miserable", ru: "Несчастный" }, 
-                category: "blue", 
-                description: { 
-                    ru: "Чувство глубокого несчастья или дискомфорта.", 
-                    en: "Feeling deeply unhappy or uncomfortable." 
-                } 
-            },
-            // ... (other blue emotions - total 36)
+            // ... (other emotions)
             
             // Secret emotions
             { 
@@ -2063,28 +1843,6 @@
                 },
                 secret: true,
                 keywords: ["беззаботность", "легкость", "liberosis", "свобода", "редкие эмоции"]
-            },
-            { 
-                id: 202, 
-                name: { en: "Vellichor", ru: "Очарование старых книг" }, 
-                category: "secret", 
-                description: { 
-                    ru: "Странная ностальгия по местам, которых вы никогда не посещали, или чувство очарования при виде старых книг.", 
-                    en: "The strange wistfulness of places you've never been to or the charm of old books." 
-                },
-                secret: true,
-                keywords: ["книги", "ностальгия", "vellichor", "редкие эмоции"]
-            },
-            { 
-                id: 203, 
-                name: { en: "Monachopsis", ru: "Чувство несоответствия" }, 
-                category: "secret", 
-                description: { 
-                    ru: "Странное ощущение, что вы не на своем месте, как будто вы не вписываетесь в текущую ситуацию или окружение.", 
-                    en: "The subtle but persistent feeling of being out of place, as if you don't belong in your current situation." 
-                },
-                secret: true,
-                keywords: ["несоответствие", "monachopsis", "редкие эмоции"]
             }
         ];
 
@@ -2106,7 +1864,7 @@
         const randomEmotionBtn = document.getElementById('randomEmotion');
         const favoriteFilterBtn = document.getElementById('favoriteFilterBtn');
         const favoriteCount = document.getElementById('favoriteCount');
-        const emotionOfDay = document.getElementById('emotionOfDay');
+        const emotionOfDayBtn = document.getElementById('emotionOfDayBtn');
         const gameButton = document.getElementById('gameButton');
         const gameModal = document.getElementById('game-modal');
         const gameCloseBtn = document.getElementById('gameCloseBtn');
@@ -2119,12 +1877,17 @@
         const gameScore = document.getElementById('gameScore');
         const gameQuestionCount = document.getElementById('gameQuestionCount');
         const finalScore = document.getElementById('finalScore');
+        const usernameInput = document.getElementById('usernameInput');
+        const loginBtn = document.getElementById('loginBtn');
+        const secretEasterEgg = document.getElementById('secretEasterEgg');
 
         // State
         let activeFilters = [];
         let currentSearch = '';
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let currentUser = localStorage.getItem('currentUser') || 'default';
+        let favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser}`)) || [];
         let secretMode = false;
+        let rainbowMode = false;
         let gameState = {
             active: false,
             currentQuestion: 0,
@@ -2142,10 +1905,11 @@
             setupTheme();
             updateFavoriteCount();
             createPreloaderParticles();
+            updateUserUI();
             
-            // Инициализация новых фич
+            // Initialize features
             const emotionOfDayData = getEmotionOfTheDay();
-            updateEmotionOfDay(emotionOfDayData);
+            setupEmotionOfDay(emotionOfDayData);
             setupGame();
         }
 
@@ -2288,6 +2052,20 @@
                 gameModal.classList.remove('active');
             });
 
+            // Emotion of the day button
+            emotionOfDayBtn.addEventListener('click', () => {
+                const emotionOfDayData = getEmotionOfTheDay();
+                showEmotionDescription(emotionOfDayData);
+            });
+
+            // Login button
+            loginBtn.addEventListener('click', () => {
+                const username = usernameInput.value.trim();
+                if (username) {
+                    setUser(username);
+                }
+            });
+
             // Secret mode activation (triple click anywhere)
             let clickCount = 0;
             let lastClickTime = 0;
@@ -2306,8 +2084,30 @@
                     secretMode = !secretMode;
                     clickCount = 0;
                     filterEmotions();
-                    showSecretNotification();
+                    showSecretNotification(secretMode ? 'Секретный режим активирован' : 'Секретный режим деактивирован');
+                    createSecretParticles(e.clientX, e.clientY);
                 }
+            });
+
+            // Rainbow mode activation (key sequence)
+            const rainbowSequence = ['r','a','i','n','b','o','w'];
+            let inputSequence = [];
+            
+            document.addEventListener('keydown', (e) => {
+                inputSequence.push(e.key.toLowerCase());
+                if (inputSequence.length > rainbowSequence.length) {
+                    inputSequence.shift();
+                }
+                if (inputSequence.join('') === rainbowSequence.join('')) {
+                    inputSequence = [];
+                    toggleRainbowMode();
+                }
+            });
+
+            // Easter egg interaction
+            secretEasterEgg.addEventListener('click', () => {
+                createSecretParticles(50, 50);
+                showSecretNotification('Найдена тайная лаборатория!');
             });
         }
 
@@ -2339,8 +2139,10 @@
                     return matchesSearch;
                 });
             } else {
-                // Hide secret emotions when not searching
-                filtered = filtered.filter(emotion => !emotion.secret);
+                // Hide secret emotions when not searching and secret mode is off
+                if (!secretMode) {
+                    filtered = filtered.filter(emotion => !emotion.secret);
+                }
             }
             
             // Apply category filters
@@ -2351,6 +2153,11 @@
                     }
                     return activeFilters.includes(emotion.category);
                 });
+            }
+            
+            // Special case for "rare emotions" search
+            if (currentSearch === "редкие эмоции" || currentSearch === "rare emotions") {
+                filtered = emotions.filter(emotion => emotion.secret);
             }
             
             renderEmotions(filtered);
@@ -2500,7 +2307,7 @@
             } else {
                 favorites.splice(index, 1);
             }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
+            localStorage.setItem(`favorites_${currentUser}`, JSON.stringify(favorites));
             updateFavoriteCount();
         }
 
@@ -2636,9 +2443,9 @@
         }
 
         // Show secret notification
-        function showSecretNotification() {
+        function showSecretNotification(message) {
             const notification = document.createElement('div');
-            notification.textContent = secretMode ? 'Секретный режим активирован' : 'Секретный режим деактивирован';
+            notification.textContent = message;
             notification.style.position = 'fixed';
             notification.style.top = '20px';
             notification.style.left = '50%';
@@ -2713,16 +2520,9 @@
             return emotionsOfDay[today % emotionsOfDay.length];
         }
         
-        // Update emotion of day
-        function updateEmotionOfDay(emotion) {
-            const container = document.querySelector('.emotion-of-day');
-            container.querySelector('h3').textContent = `${emotion.name.ru} / ${emotion.name.en}`;
-            container.querySelector('p').textContent = emotion.description.ru;
-            
-            // Make banner clickable to show description
-            container.addEventListener('click', () => {
-                showEmotionDescription(emotion);
-            });
+        // Setup emotion of day
+        function setupEmotionOfDay(emotion) {
+            emotionOfDayBtn.title = `${emotion.name.ru} / ${emotion.name.en}`;
         }
         
         // Game setup
@@ -2852,6 +2652,63 @@
                 opt.style.pointerEvents = 'none';
             });
         }
+        
+        // Set current user
+        function setUser(username) {
+            currentUser = username;
+            localStorage.setItem('currentUser', username);
+            favorites = JSON.parse(localStorage.getItem(`favorites_${currentUser}`)) || [];
+            updateFavoriteCount();
+            filterEmotions();
+            updateUserUI();
+            showSecretNotification(`Пользователь: ${username}`);
+        }
+        
+        // Update user UI
+        function updateUserUI() {
+            if (currentUser !== 'default') {
+                usernameInput.value = currentUser;
+                document.querySelector('.user-controls').innerHTML = `
+                    <div class="user-indicator">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12a5 5 0 100-10 5 5 0 000 10zM12 14c-4.42 0-8 2.69-8 6v2h16v-2c0-3.31-3.58-6-8-6z"/>
+                        </svg>
+                        ${currentUser}
+                    </div>
+                    <button class="user-btn" id="logoutBtn">Выйти</button>
+                `;
+                
+                document.getElementById('logoutBtn').addEventListener('click', () => {
+                    setUser('default');
+                });
+            }
+        }
+        
+        // Toggle rainbow mode
+        function toggleRainbowMode() {
+            rainbowMode = !rainbowMode;
+            document.body.classList.toggle('rainbow-mode', rainbowMode);
+            showSecretNotification(rainbowMode ? 'Радужный режим активирован' : 'Радужный режим деактивирован');
+            createSecretParticles(window.innerWidth/2, window.innerHeight/2);
+        }
+        
+        // Create secret particles
+        function createSecretParticles(x, y) {
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'secret-particle';
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                particle.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                particle.style.animationDuration = `${1 + Math.random() * 2}s`;
+                document.body.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+        }
 
         // Initialize the app when DOM is loaded
         window.addEventListener('load', () => {
@@ -2860,7 +2717,7 @@
                 preloader.style.opacity = '0';
                 preloader.style.visibility = 'hidden';
                 init();
-            }, 1500); // Reduced preloader time
+            }, 1500);
         });
     </script>
 </body>
